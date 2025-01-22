@@ -1,3 +1,4 @@
+import 'package:ecomerce_app/components/my_button.dart';
 import 'package:flutter/material.dart';
 
 class IntroPage extends StatelessWidget {
@@ -27,7 +28,15 @@ class IntroPage extends StatelessWidget {
               "Premium Quality Porduct",
               style: TextStyle(
                   color: Theme.of(context).colorScheme.inversePrimary),
-            )
+            ),
+            SizedBox(
+              height: 25,
+            ),
+            MyButton(
+                onTap: () {
+                  Navigator.pushNamed(context, '/shop_page');
+                },
+                child: Icon(Icons.arrow_forward))
           ],
         ),
       ),

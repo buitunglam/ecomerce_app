@@ -1,4 +1,5 @@
 import 'package:ecomerce_app/pages/Intro_page.dart';
+import 'package:ecomerce_app/pages/shop_page.dart';
 import 'package:ecomerce_app/themes/light_mode.dart';
 import 'package:flutter/material.dart';
 
@@ -13,8 +14,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: IntroPage(),
+      home: const IntroPage(),
       theme: lightMode,
+      routes: {
+        "/intro_page": (context) => const IntroPage(),
+        "/shop_page": (context) => const ShopPage()
+      },
     );
   }
 }
