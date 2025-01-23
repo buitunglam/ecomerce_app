@@ -16,15 +16,40 @@ class ShopPage extends StatelessWidget {
         title: Text("Shop Page"),
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
         backgroundColor: Colors.transparent,
+        actions: [
+          IconButton(
+              onPressed: () => Navigator.pushNamed(context, "/cart_page"),
+              icon: Icon(Icons.shopping_cart_outlined))
+        ],
       ),
       drawer: MyDrawer(),
       backgroundColor: Theme.of(context).colorScheme.surface,
-      body: ListView.builder(
-        itemCount: products.length,
-        itemBuilder: (context, index) {
-          final product = products[index];
-          return MyProductTile(product: product);
-        },
+      body: ListView(
+        children: [
+          const SizedBox(
+            height: 25,
+          ),
+          // shop title
+          Center(
+            child: Text("SHOP"),
+          ),
+
+          // shop subtitle
+
+          // product list
+          SizedBox(
+            height: 550,
+            child: ListView.builder(
+              itemCount: products.length,
+              padding: EdgeInsets.all(15),
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                final product = products[index];
+                return MyProductTile(product: product);
+              },
+            ),
+          )
+        ],
       ),
     );
   }
